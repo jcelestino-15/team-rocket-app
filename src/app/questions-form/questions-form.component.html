@@ -1,0 +1,6 @@
+<div class="form-group">
+    <label for="questionType">Choose Question Type</label>
+    <select class="form-control" id="questionType" required>
+      <option *ngFor="let singleQT of questionType" [value]="singleQT">{{singleQT}}</option>
+    </select>
+  </div>
