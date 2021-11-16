@@ -7,14 +7,20 @@ import { Question } from '../data-model/question';
 })
 export class QuestionsFormComponent implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
-  questionType = ['multiple choice', 'free response'];
+  questionType = ['Multiple Choice', 'Free Response'];
 
-  model = new Question('mc');
+  questionAsk = ""
+
+  questionAnswer = ""
+
+  model=new Question("", "", "", "")
 
   submitted = false;
 
