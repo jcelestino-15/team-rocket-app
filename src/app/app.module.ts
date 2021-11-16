@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TokenComponent } from './token/token.component';
 import { FormsModule } from '@angular/forms';
+import { GetQuestionsComponent } from './get-questions/get-questions.component';
+import { QuestionsFormComponent } from './questions-form/questions-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TokenComponent
+    TokenComponent,
+    GetQuestionsComponent,
+    QuestionsFormComponent
   ],
   imports: [
     BrowserModule,
