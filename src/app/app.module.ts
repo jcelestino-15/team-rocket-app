@@ -8,13 +8,19 @@ import { TokenComponent } from './token/token.component';
 import { FormsModule } from '@angular/forms';
 import { GetQuestionsComponent } from './get-questions/get-questions.component';
 import { QuestionsFormComponent } from './questions-form/questions-form.component';
+import { EnterTokenComponent } from './enter-token/enter-token.component';
+import { StudentIdComponent } from './student-id/student-id.component';
+import { AnswerQuestionsComponent } from './answer-questions/answer-questions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TokenComponent,
     GetQuestionsComponent,
-    QuestionsFormComponent
+    QuestionsFormComponent,
+    EnterTokenComponent,
+    StudentIdComponent,
+    AnswerQuestionsComponent
   ],
   imports: [
     BrowserModule,
