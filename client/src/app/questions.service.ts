@@ -9,7 +9,7 @@ export class QuestionsService {
   constructor(private webRequestService: WebRequestService) { }
 
   postQuestionToDB(payload:Object) {
-    return this.webRequestService.post('sendQuestion', "send to db");
+    return this.webRequestService.post('sendQuestion', payload);
   }
 
 }
