@@ -19,7 +19,7 @@
     
       <br>
 
-      <button [disabled]="!model.questionAsk || !model.questionAnswer"> Add </button>
+      <button [disabled]="!model.questionAsk || !model.questionAnswer" (click)='sendQuestionToDB("Send")'> Add </button>
 
     </div>
 

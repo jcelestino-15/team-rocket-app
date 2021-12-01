@@ -1,0 +1,15 @@
+import { Injectable } from '@angular/core';
+import { WebRequestService } from './web-request.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class QuestionsService {
+
+  constructor(private webRequestService: WebRequestService) { }
+
+  postQuestionToDB(payload:Object) {
+    return this.webRequestService.post('sendQuestion', "send to db");
+  }
+
+}
