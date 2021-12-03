@@ -1,0 +1,26 @@
+<div class="container">    
+    <h1>Questions for Students </h1>    
+        <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">        
+            <p>      
+                     
+            <table class="table table-bordered" formArrayName="questions">      
+                <tr>       
+                    <th colspan="2">Add Questions:</th>       
+                    <th width="150px"><button type="button" (click)="addQuestion()" class="btn btn-primary">Add</button></th>      
+                </tr>
+                <tr *ngFor="let quantity of questions().controls; let i=index" [formGroupName]="i">        
+                    <td>            
+                        Question :            <input type="text" formControlName="Q" class="form-control">        
+                    </td>        
+                    <td>            
+                        Answer:            <input type="text" formControlName="A" class="form-control">        
+                    </td>        
+                    <td>            
+                        <button (click)="removeQuestion(i)" class="btn btn-danger">Remove</button>        
+                    </td>      
+                </tr>    
+            </table>       
+            <button type="submit" class="btn btn-success">Submit</button>      
+        </form>      
+        <br/>  <-- {{this.questionForm.value | json}}-->
+    </div>

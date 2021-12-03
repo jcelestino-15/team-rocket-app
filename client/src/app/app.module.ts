@@ -11,6 +11,8 @@ import { EnterTokenComponent } from './enter-token/enter-token.component';
 import { StudentIdComponent } from './student-id/student-id.component';
 import { AnswerQuestionsComponent } from './answer-questions/answer-questions.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { HttpClientModule } from '@angular/common/http';
     QuestionsFormComponent,
     EnterTokenComponent,
     StudentIdComponent,
-    AnswerQuestionsComponent
+    AnswerQuestionsComponent,
+    AddQuestionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
