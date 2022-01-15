@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -11,6 +10,9 @@ import { QuestionsFormComponent } from './questions-form/questions-form.componen
 import { EnterTokenComponent } from './enter-token/enter-token.component';
 import { StudentIdComponent } from './student-id/student-id.component';
 import { AnswerQuestionsComponent } from './answer-questions/answer-questions.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,16 @@ import { AnswerQuestionsComponent } from './answer-questions/answer-questions.co
     QuestionsFormComponent,
     EnterTokenComponent,
     StudentIdComponent,
-    AnswerQuestionsComponent
+    AnswerQuestionsComponent,
+    AddQuestionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

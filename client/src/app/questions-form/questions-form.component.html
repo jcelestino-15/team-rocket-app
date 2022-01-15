@@ -6,7 +6,7 @@
 
     <div class="single" *ngIf="model.questionType == 'Free Response'">
     <br>
-    
+
     <div class="form-group">
         <input type="text"class="form-control" placeholder="Enter a question" [(ngModel)]="model.questionAsk"/>
       </div>
@@ -19,8 +19,9 @@
     
       <br>
 
-      <button [disabled]="!model.questionAsk || !model.questionAnswer"> Add </button>
+      <button [disabled]="!model.questionAsk || !model.questionAnswer" (click)='sendQuestionToDB(model.questionAsk)'> Add </button>
 
     </div>
 
   </div>
+<app-add-questions></app-add-questions>

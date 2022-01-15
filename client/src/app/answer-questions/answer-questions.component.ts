@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import questionPrompt from './test.json';
 @Component({
   selector: 'answerQuestions',
   templateUrl: './answer-questions.component.html',
@@ -11,5 +11,6 @@ export class AnswerQuestionsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  title = 'json-file-read-angular';
+  public questionList:{questionPrompt:string}[] = questionPrompt;
 }

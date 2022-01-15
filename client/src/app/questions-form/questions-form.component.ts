@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../data-model/question';
+import { QuestionsService } from '../questions.service';
 @Component({
   selector: 'questions-form',
   templateUrl: './questions-form.component.html',
@@ -8,7 +9,8 @@ import { Question } from '../data-model/question';
 export class QuestionsFormComponent implements OnInit {
 
   
-  constructor() { }
+  constructor(
+    private questionService: QuestionsService) { }
 
   ngOnInit(): void {
     
@@ -27,5 +29,17 @@ export class QuestionsFormComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
   }
+
+  sendQuestionToDB(question:string) {
+
+    let questionJSON = { "Question" : question }
+
+    this.questionService.postQuestionToDB(questionJSON).subscribe((response: any) => {
+
+      console.log(response);
+
+    })
+  }
+
 
 }
