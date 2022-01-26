@@ -1,0 +1,12 @@
+Team Rocket Update 1/26
+
+Where we left off:
+We implemented our new form that calls and posts to our database
+
+Where we plan to start: 
+Adding more features to our app now that we have a working example
+
+Who's working what: 
+Saikat & Chloe are working on the backend
+
+Alexis & Jazmin are working on the frontend
