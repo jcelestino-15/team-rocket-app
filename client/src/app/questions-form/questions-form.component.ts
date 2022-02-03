@@ -30,11 +30,11 @@ export class QuestionsFormComponent implements OnInit {
     this.submitted = true;
   }
 
-  sendQuestionToDB(question:string) {
+  sendQuestionToDB(question:object) {
 
     let questionJSON = { "Question" : question }
 
-    this.questionService.postQuestionToDB(questionJSON).subscribe((response: any) => {
+    this.questionService.postQuestionToDB(question).subscribe((response: any) => {
 
       console.log(response);
 
