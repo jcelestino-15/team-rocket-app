@@ -1,3 +1,5 @@
 <p>Token Value: </p>
-<input type="text" maxlength="10" minlength="4" [ngModel]="token" (ngModelChange)="generateString(8)">
-<button (click)="goToPage('get-questions')">Initiate</button>
+<!-- <input type="text" maxlength="10" minlength="4" [ngModel]="token" (ngModelChange)="generateString(8)"?> -->
+<input (keyup)="onKey($event)"  type="text" maxlength="10" minlength="4" [(ngModel)]="token" >
+<!-- <button (click)="goToPage('get-questions')">Initiate</button> -->
+<button (click)="createToken()">Initiate</button>
