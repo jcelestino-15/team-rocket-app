@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { QuestionsService } from '../questions.service';
+import { TokenComponent } from '../token/token.component';
 
 @Component({
   selector: 'app-add-questions',
@@ -10,9 +12,10 @@ import { QuestionsService } from '../questions.service';
 export class AddQuestionsComponent {
   name = 'Add Question';
   questionForm: FormGroup;
-  constructor(private fb: FormBuilder, private questionService: QuestionsService) {
+  constructor(private fb: FormBuilder, private questionService: QuestionsService) {  
      this.questionForm = this.fb.group({
-        name: '',
+        token: 'this.token', 
+        //token: this.token,
         questions: this.fb.array([]),
      });
 

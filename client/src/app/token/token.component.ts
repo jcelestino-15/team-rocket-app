@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./token.component.css']
 })
 export class TokenComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,9 +17,20 @@ export class TokenComponent implements OnInit {
 
   onKey(event:any) {
     this.values = event.target.value;
+    this.token = this.values;
     console.log(this.values)
   }
   
+  goToPage(pageName:string):void {
+
+    this.router.navigate([`${pageName}`])
+  }  
+
+createToken(){
+ 
+ console.log("the token value is:" + this.token)
+ this.goToPage('get-questions') 
+}
 
 generateString(length: number): string {
     // declare all characters
@@ -33,8 +44,5 @@ generateString(length: number): string {
     return result;
 }
 
-goToPage(pageName:string):void {
-  this.router.navigate([`${pageName}`])
-}
 
 }
