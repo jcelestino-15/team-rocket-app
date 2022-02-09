@@ -1,26 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { QuestionsService } from '../questions.service';
 import { TokenComponent } from '../token/token.component';
+import { TokenSharingService } from '../token-sharing.service';
 
 @Component({
   selector: 'app-add-questions',
   templateUrl: './add-questions.component.html',
   styleUrls: ['./add-questions.component.css']
 })
-export class AddQuestionsComponent {
-  name = 'Add Question';
+export class AddQuestionsComponent implements OnInit {
+   token!: 'this.token';
+   name = 'Add Question';
   questionForm: FormGroup;
-  constructor(private fb: FormBuilder, private questionService: QuestionsService) {  
+  constructor(private fb: FormBuilder, private questionService: QuestionsService, private shared: TokenSharingService) {  
      this.questionForm = this.fb.group({
-        token: 'this.token', 
+      //   token: 'this.token', 
         //token: this.token,
         questions: this.fb.array([]),
      });
 
   }
-
+  ngOnInit(): void {
+   this.token= this.shared.getMessage()
+}
   questions(): FormArray {
      return this.questionForm.get("questions") as FormArray
   }
