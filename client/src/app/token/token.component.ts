@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SharedTokenService } from '../shared-token.service';
 
 @Component({
   selector: 'app-token',
@@ -8,10 +9,12 @@ import { Router } from '@angular/router';
 })
 export class TokenComponent implements OnInit {
   
-  constructor(public router: Router) { }
+  constructor(public router: Router, private sharedToken: SharedTokenService) { }
 
   ngOnInit(): void {
+    this.sharedToken.sharedToken.subscribe(token => this.token = token)
   }
+
   values = '';
   token = '';
 
@@ -26,11 +29,12 @@ export class TokenComponent implements OnInit {
     this.router.navigate([`${pageName}`])
   }  
 
-createToken(){
+  createToken(){
  
- console.log("the token value is:" + this.token)
- this.goToPage('get-questions') 
-}
+    console.log("the token value is:" + this.token)
+    this.sharedToken.newToken(this.token)
+    this.goToPage('get-questions') 
+  }
 
 generateString(length: number): string {
     // declare all characters
