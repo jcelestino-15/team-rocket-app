@@ -13,6 +13,9 @@ import { AnswerQuestionsComponent } from './answer-questions/answer-questions.co
 import { HttpClientModule } from '@angular/common/http';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SuccessPageComponent } from './success-page/success-page.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     EnterTokenComponent,
     StudentIdComponent,
     AnswerQuestionsComponent,
-    AddQuestionsComponent
+    AddQuestionsComponent,
+    SuccessPageComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+Your Token: {{token}}
+
 <div class="container">    
     <h1>Questions for Students </h1>    
         <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">        
@@ -21,7 +23,7 @@
                 </tr>    
             </table>       
             <!--<button type="submit" class="btn btn-success">Submit</button> -->
-            <button type="submit" class="btn btn-success" (click)='sendQuestionToDB(this.questionForm.value)' > Submit </button>
+            <button type="submit" class="btn btn-success" (click)="sendQuestionToDB(this.questionForm.value)" > Submit </button>
       
         </form>      
         <br/>  <-- {{this.questionForm.value | json}}-->
