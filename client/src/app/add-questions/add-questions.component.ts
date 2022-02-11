@@ -15,7 +15,7 @@ export class AddQuestionsComponent implements OnInit {
   questionForm: FormGroup;
   constructor(private fb: FormBuilder, private questionService: QuestionsService, public router: Router, private sharedToken: SharedTokenService) {  
      this.questionForm = this.fb.group({
-        token: 'this.token', 
+        token: this.token, 
         //token: this.token,
         questions: this.fb.array([]),
      });
@@ -26,6 +26,12 @@ export class AddQuestionsComponent implements OnInit {
 
   ngOnInit(){
      this.sharedToken.sharedToken.subscribe(token => this.token = token)
+     
+     this.questionForm = this.fb.group({
+      token: this.token, 
+      //token: this.token,
+      questions: this.fb.array([]),
+   });
   }
   questions(): FormArray {
      return this.questionForm.get("questions") as FormArray
