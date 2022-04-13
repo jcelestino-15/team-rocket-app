@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "backend_task" {
 [
     {
         "name": "team-rocket-ecr-repo",
-        "image": "128938251136.dkr.ecr.us-east-1.amazonaws.com/test-github-actions:latest",
+        "image": "128938251136.dkr.ecr.us-east-1.amazonaws.com/team-rocket-ecr:latest",
         "memory": 512,
         "essential": true,
         "portMappings": [
