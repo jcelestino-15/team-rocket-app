@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "backend_task" {
-    family = "backend_example_app_family"
+    family = "backend_apps"
 
     // Fargate is a type of ECS that requires awsvpc network_mode
     requires_compatibilities = ["FARGATE"]
