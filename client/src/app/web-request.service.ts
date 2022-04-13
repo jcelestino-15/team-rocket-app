@@ -15,11 +15,13 @@ export class WebRequestService {
   }
 
   get(uri: string) {
-    return this.http.get(`${this.ROOT_URL}/${uri}`);
+    return this.http.get('http://localhost:3000/qa-sets');
   }
 
   post(uri: string, payload: Object) {
-    return this.http.post(`${this.ROOT_URL}/${uri}`, payload)
+    return this.http.post('http://localhost:3000/qa-sets', payload)
+
+    //return this.http.post(`${this.ROOT_URL}/${uri}`, payload)
   }
 
   patch(uri: string, payload: Object) {
@@ -32,3 +34,10 @@ export class WebRequestService {
 
 
 }
+
+// go to client/src/assets
+
+// npm install -g json-server
+
+// json-server --watch ./db.json
+

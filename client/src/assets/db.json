@@ -1,0 +1,14 @@
+{
+  "qa-sets": [
+    {
+      "id": 1,
+      "question": "what color is the sky?",
+      "answer": "blue"
+    },
+    {
+      "id": 2,
+      "question": "what is docker?",
+      "answer": "answer"
+    }
+  ]
+}

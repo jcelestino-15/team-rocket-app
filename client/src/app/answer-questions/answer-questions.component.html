@@ -2,10 +2,11 @@
     <h2>
         Question List:
     </h2>
-    <ol *ngFor="let item of questionList">
-        <li>
-          <h3>Question : {{item.questionPrompt}}</h3>
+    <ol>
+        <li *ngFor="let qa of qaList">
+          <h3>Question: {{qa.question}}</h3>
+          <h3>Answer: <input type="text"></h3>
        </li>
     </ol>
-    <input type="text">
+    
 </div>
