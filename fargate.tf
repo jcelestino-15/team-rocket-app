@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "backend_task" {
-    family = "backend_example_app_family"
+    family = "backend_apps"
 
     // Fargate is a type of ECS that requires awsvpc network_mode
     requires_compatibilities = ["FARGATE"]
@@ -16,7 +16,7 @@ resource "aws_ecs_task_definition" "backend_task" {
 [
     {
         "name": "team-rocket-ecr-repo",
-        "image": "128938251136.dkr.ecr.us-east-1.amazonaws.com/test-github-actions:latest",
+        "image": "128938251136.dkr.ecr.us-east-1.amazonaws.com/team-rocket-ecr:latest",
         "memory": 512,
         "essential": true,
         "portMappings": [
@@ -45,7 +45,7 @@ resource "aws_ecs_service" "backend_service" {
 
     network_configuration {
         subnets = ["${aws_subnet.public_a.id}", "${aws_subnet.public_b.id}"]
-        security_groups = ["${aws_security_group.security_group_example_app.id}"]
+        security_groups = ["${aws_security_group.security_group_app.id}"]
         assign_public_ip = true
     }
 }
