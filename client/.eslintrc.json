@@ -15,7 +15,17 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+        "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+        "semi": ["error", "always"],
+        //"quotes": ["error", "double", { "avoidEscape": true }],
+        "no-const-assign": ["error"],
+        "curly": ["error"],
+        "no-empty": ["error"],
+        "no-extra-label": ["error"],
+        "no-extra-semi": ["error"],
+        "no-undef-init": ["error"],
+        "no-unused-labels": ["error"],
+        "no-useless-return": ["error"] 
     }
 
 }
