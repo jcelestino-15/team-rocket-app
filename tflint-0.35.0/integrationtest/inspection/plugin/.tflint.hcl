@@ -1,3 +1,0 @@
-plugin "example" {
-  enabled = true
-}
