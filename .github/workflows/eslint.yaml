@@ -23,7 +23,7 @@ jobs:
       - name: Run ESLint Client
         working-directory: ./client/
         run: npx eslint .
-          --config .eslintrc.js
+          --config .eslintrc.json
           --ext .js,.jsx,.ts,.tsx
           --format @microsoft/eslint-formatter-sarif 
           --output-file eslint-results.sarif
@@ -37,7 +37,11 @@ jobs:
 
       - name: Run ESLint
         working-directory: ./server/
-        run: npx eslint server.js database --ext .js
+        run: npx eslint server.js database 
+          --ext .js 
+          --config .eslintrc.json
+          --format @microsoft/eslint-formatter-sarif 
+          --output-file eslint-results.sarif
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
