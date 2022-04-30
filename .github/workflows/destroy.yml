@@ -1,26 +1,15 @@
-name: Manually triggered workflow
+name: Terraform Destroy
 on:
-  workflow_dispatch:
-    inputs:
-      env:
-        description: 'Environment'
-        required: true
-        default: 'dev'
-        
-  
+ workflow_dispatch:
+
 jobs:
-  destroy-app:
-    runs-on: ubuntu-latest
-    steps:
-    - name: 'Terraform Plan Destroy'
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: latest
-        tf_actions_subcommand: 'plan'
-        args: '-destroy -out=./destroy-plan'
-    - name: 'Terraform Apply Destroy'
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: latest
-        tf_actions_subcommand: 'apply'  
-        args: './destroy-plan'
+ tf-destroy:
+   runs-on: ubuntu-latest
+   env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: 'us-east-1'
+   steps:
+     - name: Terraform destroy
+       id: destroy
+       run: terraform destroy -auto-approved
