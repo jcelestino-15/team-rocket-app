@@ -6,6 +6,5 @@ on:
         description: 'Environment'
         required: true
         default: 'dev'
-
 - name: Terraform destroy on github action aws v1
   uses: md1810/terraform-destroy-on-action@v12
