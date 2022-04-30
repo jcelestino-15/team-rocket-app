@@ -2,10 +2,11 @@
     <h2>
         Question List:
     </h2>
-    <ol *ngFor="let item of questionList">
+    <ol *ngFor="let question of questions">
         <li>
-          <h3>Question : {{item.questionPrompt}}</h3>
+          <h3>Question : {{question.Q}}</h3>
+          <h3>Question : {{question.A}}</h3>
        </li>
     </ol>
     <input type="text">
-</div>zzzz
+</div>

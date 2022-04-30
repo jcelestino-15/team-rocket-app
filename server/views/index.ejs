@@ -11,18 +11,22 @@
   </form>
 </body>
 
-<%= questions %>
-
-<h2>Questions</h2>
-<ul class="questions">
-  <% for(var i=0; i < quotes.length; i++){%>
-    <li class="questions">
-      <span><%= questions[i].question %></span>
-      <span><%= questions[i].answer %></span>
-    </li>
-
-   <% } %> 
-
-</ul> 
+<div class="container">
+  <table>
+      <thead>
+      <tr>
+          <th colspan="3"><div>Read</div></th>
+      </tr>
+      </thead>
+      <tbody>
+          <% for(var i = 0; i < questions.length; i++) { %>
+          <tr>
+              <td><%= questions[i].question %></td>
+              <td><%= questions[i].answer %></td>
+          </tr>
+          <% } %>
+      </tbody>
+  </table>
+</div>
 
 </html>
