@@ -65,8 +65,4 @@ export class AddQuestionsComponent implements OnInit {
 
  }
 
- printHello() {
-      console.log("hello")
-}
-
 }

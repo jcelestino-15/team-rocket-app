@@ -2,6 +2,7 @@ const express=require('express')
 const bodyParser=require('body-parser')
 const app=express();
 const MongoClient = require('mongodb').MongoClient
+const Question = require('../server/questions') 
 
 const connectionString = 'mongodb+srv://teamrocket:blast0ff@cluster0.gvgcv.mongodb.net/TeamRocketDB?retryWrites=true&w=majority'
 
@@ -52,10 +53,26 @@ app.post ('/sendQuestion', (req, res)=>{
     })
     .catch(error => console.error(error))
     })
-    
-
 })
+    
+app.get('/questionsFromProfessor', (req, res) => {
 
-
+  //  api --> /questionsFromProfessor?token=jessie
+  console.log("Get /questionsFromProfessor")
+  console.log("******"+req.query.token)
+  MongoClient.connect(connectionString, {useUnifiedTopology: true})
+  .then(client => {
+      console.log('Connected to the db')
+      const db = client.db('TeamRocketDB')
+      const questionsCollection = db.collection('questions')
+      
+  questionsCollection.findOne({token: req.query.token}, function(err, result) {
+      if (result == null) {
+        res.statusCode = 204
+      };
+      res.send(result.q);
+    });
+  });
+})
 
 
