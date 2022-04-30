@@ -3,21 +3,28 @@ on:
   workflow_dispatch:
     inputs:
       env:
+       #terraform
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         description: 'Environment'
         required: true
         default: 'dev'
+        
+  
 jobs:
-  issue_parser:
+  destroy-app:
     runs-on: ubuntu-latest
-    name: Terraform destroy
-    steps:      
-    - name: Terraform destroy on github action aws v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        AWS_REGION: ${{ secrets.AWS_REGION }}
-        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      uses: md1810/terraform-destroy-on-action@v5.2
+    steps:
+    - name: 'Terraform Plan Destroy'
+      uses: hashicorp/terraform-github-actions@master
       with:
-        org_name: "jcelestino-15"
-        repo_name: "team-rocket-app"
+        tf_actions_version: latest
+        tf_actions_subcommand: 'plan'
+        args: '-destroy -out=./destroy-plan'
+    - name: 'Terraform Apply Destroy'
+      uses: hashicorp/terraform-github-actions@master
+      with:
+        tf_actions_version: latest
+        tf_actions_subcommand: 'apply'  
+        args: './destroy-plan'
