@@ -19,5 +19,5 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       uses: md1810/terraform-destroy-on-action@v5.2
       with:
-        org_name: ${{ secrets.INPUT_ORG_NAME }}
-        repo_name: ${{ secrets.INPUT_REPO_NAME }}
+        org_name: "jcelestino-15"
+        repo_name: "team-rocket-app"
