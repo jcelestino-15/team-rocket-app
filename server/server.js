@@ -2,6 +2,7 @@ const express=require('express')
 const bodyParser=require('body-parser')
 const app=express();
 const MongoClient = require('mongodb').MongoClient
+const Question = require('../server/questions') 
 
 const connectionString = 'mongodb+srv://teamrocket:blast0ff@cluster0.gvgcv.mongodb.net/TeamRocketDB?retryWrites=true&w=majority'
 
@@ -20,8 +21,20 @@ console.log ('listening on port 3000')
 })
 
 app.get ('/',(req,res)=>{
-res.sendFile(__dirname+'/index.html')
-})
+  MongoClient.connect(connectionString, {useUnifiedTopology: true})
+  .then(client => {
+      console.log('Connected to the db')
+      const db = client.db("TeamRocketDB")
+      const questionsCollection = db.collection('questions')
+
+  questionsCollection.find().toArray().then(results => {
+    res.render('index.ejs', {questions: results});
+  })
+  .catch((error) => {
+    res.redirect('/');
+  });
+});
+});
 
 app.post ('/sendQuestion', (req, res)=>{
 
@@ -35,11 +48,31 @@ app.post ('/sendQuestion', (req, res)=>{
     // write the request to the the collections
     questionsCollection.insertOne(req.body)
     .then(result => {
+        res.redirect('/')
         console.log(result)
     })
     .catch(error => console.error(error))
     })
-    
-    res.redirect('/')
-
 })
+    
+app.get('/questionsFromProfessor', (req, res) => {
+
+  //  api --> /questionsFromProfessor?token=jessie
+  console.log("Get /questionsFromProfessor")
+  console.log("******"+req.query.token)
+  MongoClient.connect(connectionString, {useUnifiedTopology: true})
+  .then(client => {
+      console.log('Connected to the db')
+      const db = client.db('TeamRocketDB')
+      const questionsCollection = db.collection('questions')
+      
+  questionsCollection.findOne({token: req.query.token}, function(err, result) {
+      if (result == null) {
+        res.statusCode = 204
+      };
+      res.send(result.q);
+    });
+  });
+})
+
+

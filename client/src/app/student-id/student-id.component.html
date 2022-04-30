@@ -1,3 +1,5 @@
+<p>Given Token Value:</p>
+<input id="token" type="text" maxlength="10" minlength="4" [(ngModel)]="token">
 <p>Enter Your Student ID:</p>
 <input type="text" maxlength="10" minlength="4">
-<button (click)="goToPage('answerQuestions')">Initiate</button>
+<button (click)="questionsFromProfessor(this.token)">Initiate</button>
