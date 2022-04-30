@@ -7,23 +7,5 @@ on:
         required: true
         default: 'dev'
 
-jobs:
-  destroy:
-    name: "Destroy AWS"
-    runs-on: ubuntu-latest
-    steps:
-        - name: Show Destroy plan
-          run: terraform plan -destroy
-          continue-on-error: true
-
-        - name: Destroy resources jobs
-          id: destroy
-          run: terraform destroy -auto-approve
-
-        - name: Delete plan file
-          if: steps.destroy.outcome == 'success'
-          run: aws s3 rm s3://your-bucket/yourapp-${{ github.event.inputs.env }}.tfstate
-          env:
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            AWS_DEFAULT_REGION: ${{ secrets.REGION }}
+- name: Terraform destroy on github action aws v1
+  uses: md1810/terraform-destroy-on-action@v12
