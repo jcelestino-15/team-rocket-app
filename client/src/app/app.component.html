@@ -35,7 +35,7 @@
   }
 
   .toolbar {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     right: 0;
@@ -92,6 +92,10 @@
     border-color: white;
     font: 16px;
   }
+  .logo {
+    text-decoration: none;
+    color: white;
+  }
 
 </style>
 
@@ -103,14 +107,14 @@
     <div class="spacer"></div>    
     <button (click)="goToPage('student-id')" >Student</button>
     <div class="spacer"></div> -->
-    <a href="https://www.youtube.com/watch?v=hGCSD6AHv5U"><h1 class="center">Lecture Launch</h1></a>
+    <a class="center logo" href="/"><h1>Lecture Launch</h1></a>
 </div>
 
 <div class="container" role="main">
   <!-- Rocket Image -->
   <div class="row">
     <div class="col">
-      <img class="center" src="../assets/rocket.gif" alt="kowaii" style="position: relative;">
+      <a href="https://www.youtube.com/watch?v=hGCSD6AHv5U" target="_blank"><img class="center" src="../assets/rocket.gif" alt="kowaii" style="position: relative;"></a>
       <h1 class="text">Welcome!</h1>
     </div>
   </div>
