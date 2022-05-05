@@ -1,5 +1,5 @@
 <p>Token Value: </p>
 <!-- <input type="text" maxlength="10" minlength="4" [ngModel]="token" (ngModelChange)="generateString(8)"?> -->
-<input (keyup)="onKey($event)"  type="text" maxlength="10" minlength="4" [(ngModel)]="token" >
+<input style="border-radius: 10px 0px 0px 10px; padding: 4px 20px;" (keyup)="onKey($event)"  type="text" maxlength="10" minlength="4" [(ngModel)]="token" >
 <!-- <button (click)="goToPage('get-questions')">Initiate</button> -->
-<button (click)="createToken()">Initiate</button>
+<button style="border-radius: 0px 10px 10px 0px; padding: 4px 20px; background-color: #0f5298; color: #ffffff;" (click)="createToken()">Initiate</button>

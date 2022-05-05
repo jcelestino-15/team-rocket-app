@@ -72,7 +72,7 @@
     align-items: center;
   }
   .container {
-    background-color: #3c99dc;
+    background-color: #ffffff;
   }
   .center {
     margin: 0px auto;
@@ -84,33 +84,51 @@
   .text {
     text-align: center;
   }
+  button {
+    background-color: #0f5298;
+    color: white;
+    border-radius: 10px;
+    padding: 8px 20px;
+    border-color: white;
+    font: 16px;
+  }
 
 </style>
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <img/>
+  <!-- <img/>
   <button (click)="goToPage('token')" >Professor</button>
     <div class="spacer"></div>
     <div class="spacer"></div>    
     <button (click)="goToPage('student-id')" >Student</button>
-    <div class="spacer"></div>
-    
+    <div class="spacer"></div> -->
+    <a href="https://www.youtube.com/watch?v=hGCSD6AHv5U"><h1 class="center">Lecture Launch</h1></a>
 </div>
 
 <div class="container" role="main">
+  <!-- Rocket Image -->
   <div class="row">
     <div class="col">
       <img class="center" src="../assets/rocket.gif" alt="kowaii" style="position: relative;">
-      <h1 class="text">._.</h1>
+      <h1 class="text">Welcome!</h1>
     </div>
   </div>
+
+  <!-- Button Options -->
   <div class="row">
-    <div class="col" style="background-color: white;">
-      box
+    <div class="col">
+      <button style="float: right;" (click)="goToPage('token')" >Professor</button>
     </div>
-    <div class="col" style="background-color: white;">
-      box
+    <div class="col">
+      <button style="float: left;" (click)="goToPage('student-id')" >Student</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <br>
+      <router-outlet></router-outlet>
     </div>
   </div>
     
@@ -121,4 +139,4 @@
 
 </div>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
