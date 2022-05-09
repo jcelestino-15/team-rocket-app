@@ -70,7 +70,7 @@ app.get('/questionsFromProfessor', (req, res) => {
       if (result == null) {
         res.statusCode = 204
       };
-      res.send(result.q);
+      res.send(result);
     });
   });
 })

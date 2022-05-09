@@ -11,7 +11,7 @@ import { SharedTokenService } from '../shared-token.service';
 })
 export class StudentIdComponent implements OnInit {
 
-  constructor(private router: Router, private questionService: QuestionsService) { }
+  constructor(private router: Router, private questionService: QuestionsService, private sharedToken: SharedTokenService ) { }
   token: string = '';
   ngOnInit(): void {
   }
@@ -19,20 +19,14 @@ export class StudentIdComponent implements OnInit {
     this.router.navigate([`${pageName}`])
   }
 
-  questionsFromProfessor(tokenParam: string) {
-   
+  sendToken(tokenParam: string){
     this.token = tokenParam;
-
-    console.log("Value of token: " +this.token)
- 
-    this.questionService.getQuestionFromDB(this.token).subscribe((response: any) => {
- 
-       console.log(response);
-     })
- 
-     this.router.navigate(['/success-page']);
- 
+    this.sharedToken.newToken(this.token)
+    console.log("Value of token: " + this.token)
+   
+    this.goToPage('answer-questions');
   }
+
 
 }
 
