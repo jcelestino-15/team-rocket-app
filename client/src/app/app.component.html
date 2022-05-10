@@ -9,7 +9,8 @@
 
 <style>
   :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+    
     font-size: 14px;
     color: #333;
     box-sizing: border-box;
@@ -72,7 +73,7 @@
     align-items: center;
   }
   .container {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.93);
   }
   .center {
     margin: 0px auto;
@@ -83,6 +84,7 @@
   }
   .text {
     text-align: center;
+    font-family: 'Questrial', sans-serif;
   }
   button {
     background-color: #0f5298;
@@ -107,14 +109,14 @@
     <div class="spacer"></div>    
     <button (click)="goToPage('student-id')" >Student</button>
     <div class="spacer"></div> -->
-    <a class="center logo" href="/"><h1>Lecture Launch</h1></a>
+    <a class="center logo" href="/"><img src="../assets/lecturelaunch_logo.png" style="height: 50px; width: auto; padding-bottom: 5px;"></a>
 </div>
 
 <div class="container" role="main">
   <!-- Rocket Image -->
   <div class="row">
     <div class="col">
-      <a href="https://www.youtube.com/watch?v=hGCSD6AHv5U" target="_blank"><img class="center" src="../assets/rocket.gif" alt="kowaii" style="position: relative;"></a>
+      <a href="https://www.youtube.com/watch?v=vYAHFpclnYc" target="_blank"><img class="center" src="../assets/rocket.gif" alt="kowaii" style="position: relative;"></a>
       <h1 class="text">Welcome!</h1>
     </div>
   </div>
