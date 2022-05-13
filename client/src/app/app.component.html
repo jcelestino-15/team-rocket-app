@@ -98,7 +98,10 @@
     text-decoration: none;
     color: white;
   }
-
+  .pushbutton {
+    padding: 20px 40px;
+    font-size: 17pt;
+  }
 </style>
 
 <!-- Toolbar -->
@@ -124,10 +127,10 @@
   <!-- Button Options -->
   <div class="row">
     <div class="col">
-      <button style="float: right;" (click)="goToPage('token')" >Professor</button>
+      <button class="pushbutton" style="float: right;" (click)="goToPage('token')" >Professor</button>
     </div>
     <div class="col">
-      <button style="float: left;" (click)="goToPage('student-id')" >Student</button>
+      <button class="pushbutton" style="float: left;" (click)="goToPage('student-id')" >Student</button>
     </div>
   </div>
 
