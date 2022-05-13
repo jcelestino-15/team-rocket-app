@@ -11,7 +11,7 @@ import { QuestionsService } from '../questions.service';
 })
 export class AnswerQuestionsComponent implements OnInit {
 
-  questions!: Question;
+  questionlist: any = {} as Question;
   token!: string;
    
   constructor(private questionService: QuestionsService, private sharedToken: SharedTokenService) { }
@@ -20,9 +20,9 @@ export class AnswerQuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.sharedToken.sharedToken.subscribe(token => this.token = token)
  
-    this.questionService.getQuestionFromDB(this.token).subscribe((response: any) => {
-      this.questions = response;
-       console.log(response);
+    this.questionService.getQuestionFromDB(this.token).subscribe(response=> {
+      this.questionlist = response;
+       console.log(JSON.stringify(this.questionlist));
      });
  
   }
