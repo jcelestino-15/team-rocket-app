@@ -33,7 +33,7 @@ export class TokenComponent implements OnInit {
  
     console.log("the token value is:" + this.token)
     this.sharedToken.newToken(this.token)
-    this.goToPage('get-questions') 
+    this.goToPage('add-questions') 
   }
 
 generateString(length: number): string {
