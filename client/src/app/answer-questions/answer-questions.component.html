@@ -1,0 +1,30 @@
+<p class="newFont"> Your Professor's Token: {{questionlist.token}}</p>
+
+<!-- <tr *ngFor="let question of questionlist.questions; let i = index">
+    <td>
+        <p class="newFont"><b>Question:</b> {{question.Q}}</p>
+    </td>
+    <td>
+        <p class="newFont"><b>Answer:</b> <input type="text"> </p>
+    </td>
+</tr> -->
+
+    <div class="container">    
+        <h1 class="textQ">Questions to Answer: </h1>    
+            <form >        
+                <p>      
+                         
+                <table class="table table-bordered" formArrayName="questions">      
+                    <tr *ngFor="let question of questionlist.questions; let i = index">        
+                        <td>            
+                            <p class="newFont"><b>Question :</b></p> 
+                            <p style="font-size: 13pt;">{{question.Q}}</p>      
+                        </td>        
+                        <td>            
+                            <p class="newFont"><b>Answer :</b></p><div class="submit-style"><input formControlName="A" class="form-control">    </div>    
+                        </td>        
+                    </tr>    
+                </table>                 
+            </form>       
+            <!-- <br/> {{this.questionForm.value | json}} -->
+    </div>

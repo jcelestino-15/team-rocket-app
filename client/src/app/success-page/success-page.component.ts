@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedTokenService } from '../shared-token.service';
 
 @Component({
   selector: 'app-success-page',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessPageComponent implements OnInit {
 
-  constructor() { }
+  token:string = "";
+
+  constructor(private sharedToken: SharedTokenService) { }
 
   ngOnInit(): void {
+    this.sharedToken.sharedToken.subscribe(token => this.token = token)
   }
 
 }

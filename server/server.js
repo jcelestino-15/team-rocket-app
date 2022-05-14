@@ -3,8 +3,9 @@ const bodyParser=require('body-parser')
 const app=express();
 const MongoClient = require('mongodb').MongoClient
 const Question = require('../server/questions') 
+require('dotenv').config();
 
-const connectionString = 'mongodb+srv://teamrocket:blast0ff@cluster0.gvgcv.mongodb.net/TeamRocketDB?retryWrites=true&w=majority'
+const connectionString = process.env.DB_URL
 
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json());
@@ -54,6 +55,25 @@ app.post ('/sendQuestion', (req, res)=>{
     .catch(error => console.error(error))
     })
 })
+
+app.post ('/sendResponse', (req, res)=>{
+
+  // connect to db
+  MongoClient.connect(connectionString, {useUnifiedTopology: true})
+  .then(client => {
+      console.log('Connected to the db')
+      const db = client.db('TeamRocketDB')
+      const responsesCollection = db.collection('student-response')
+
+  // write the request to the the collections
+  responsesCollection.insertOne(req.body)
+  .then(result => {
+      res.redirect('/')
+      console.log(result)
+  })
+  .catch(error => console.error(error))
+  })
+})
     
 app.get('/questionsFromProfessor', (req, res) => {
 
@@ -70,7 +90,7 @@ app.get('/questionsFromProfessor', (req, res) => {
       if (result == null) {
         res.statusCode = 204
       };
-      res.send(result.q);
+      res.send(result);
     });
   });
 })

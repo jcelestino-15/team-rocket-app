@@ -12,10 +12,10 @@
                 </tr>
                 <tr *ngFor="let quantity of questions().controls; let i=index" [formGroupName]="i">        
                     <td>            
-                        <p class="newFont">Question :</p>            <input type="text" formControlName="Q" class="form-control">        
+                        <p class="newFont">Question :</p><div class="question-style"> <input formControlName="Q" class="form-control">       </div>
                     </td>        
                     <td>            
-                        <p class="newFont">Answer:</p>            <input style="border: black;" type="text" formControlName="A" class="form-control">        
+                        <p class="newFont">Answer :</p><div class="answer-style">            <input formControlName="A" class="form-control">        </div>
                     </td>        
                     <td>             
                         <button style="background-color: red; padding: 8px 20px; border-radius: 10px; margin-top: 10px; margin: 0px auto; display: block;" (click)="removeQuestion(i)" class="btn btn-danger">Remove</button>        
@@ -26,5 +26,5 @@
             <button style="float: right; margin-right: 28px; padding: 8px 20px; border-radius: 10px;" type="submit" class="btn btn-success" (click)="sendQuestionToDB(this.questionForm.value)" > Submit </button>
       
         </form>      
-        <br/>  <-- {{this.questionForm.value | json}}-->
+        <br/> <!-- {{this.questionForm.value | json}}-->
     </div>
