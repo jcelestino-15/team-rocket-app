@@ -7,6 +7,9 @@ COPY . .
 # install node modules and build assets
 RUN npm i && npm run build
 
+RUN cd /server
+RUN node server
+
 # nginx state for serving content
 FROM nginx:alpine
 # Set working directory to nginx asset directory
@@ -16,7 +19,7 @@ RUN rm -rf ./*
 # Copy static assets from builder stage
 COPY --from=builder /app/dist/team-rocket-app .
 
-EXPOSE 80
+EXPOSE 80 3000
 
 # Containers run nginx with global directives and daemon off
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
