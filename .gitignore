@@ -53,5 +53,3 @@ baseline.json
 
 # Husky
 .husky/_
-
-.env
