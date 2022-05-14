@@ -3,8 +3,9 @@ const bodyParser=require('body-parser')
 const app=express();
 const MongoClient = require('mongodb').MongoClient
 const Question = require('../server/questions') 
+require('dotenv').config();
 
-const connectionString = 'mongodb+srv://teamrocket:blast0ff@cluster0.gvgcv.mongodb.net/TeamRocketDB?retryWrites=true&w=majority'
+const connectionString = process.env.DB_URL
 
 app.use(express.urlencoded({ extended: true}))
 app.use(express.json());
