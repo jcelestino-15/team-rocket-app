@@ -9,8 +9,10 @@ on:
 jobs:
   eslint:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client/
     steps:
-      - working-directory: ./client/
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
