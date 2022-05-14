@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+body {
+    background-color: #3c99dc;
+    background: url('/assets/rocketbackground.webp') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.newFont {
+    font-family: 'Questrial', sans-serif;
+    font-size: 16pt;
+}
+.textQ {
+    font-family: 'Questrial', sans-serif;
+}
