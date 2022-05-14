@@ -7,7 +7,7 @@ COPY . .
 # install node modules and build assets
 RUN npm i && npm run build
 
-RUN cd /server
+WORKDIR /app/dist/team-rocket-app/
 RUN node server
 
 # nginx state for serving content
