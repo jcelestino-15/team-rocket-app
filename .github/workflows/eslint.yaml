@@ -15,9 +15,9 @@ jobs:
         with:
           node-version: 16
       - run: npm ci # or yarn install
+      - working-directory: ./client/
       - uses: sibiraj-s/action-eslint@v2
         with:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
-          working-directory: ./client/
