@@ -3,10 +3,12 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
       run: npm install
     - name: Run ESLint
-      working-directory: ./client
       run: eslint . --ext .js,.jsx,.ts,.tsx
