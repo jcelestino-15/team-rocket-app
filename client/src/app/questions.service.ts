@@ -12,4 +12,8 @@ export class QuestionsService {
     return this.webRequestService.post('sendQuestion', payload);
   }
 
+  getQuestionFromDB(param:string){
+    return this.webRequestService.get('questionsFromProfessor?token='+param);
+  }
+
 }
