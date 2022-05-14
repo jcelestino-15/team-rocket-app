@@ -1,5 +1,8 @@
-<p>Given Token Value:</p>
-<input id="token" type="text" maxlength="10" minlength="4" [(ngModel)]="token">
-<p>Enter Your Student ID:</p>
-<input id="student_id" type="text" maxlength="10" minlength="4" [(ngModel)]="student_id">
-<button (click)="sendToken(this.token, this.student_id)">Initiate</button>
+<p class="newFont">Given Token Value:</p>
+<input style="border-radius: 10px; padding: 4px 20px;" id="token" type="text" maxlength="10" minlength="4"
+    [(ngModel)]="token">
+<p class="newFont">Enter Your Student ID:</p>
+<input style="border-radius: 10px 0px 0px 10px; padding: 4px 20px;" type="text" maxlength="10" minlength="4"
+    [(ngModel)]="student_id">
+<button style="border-radius: 0px 10px 10px 0px; padding: 4px 20px; background-color: #0f5298; color: #ffffff;"
+    (click)="sendToken(this.token, this.student_id">Initiate</button>
