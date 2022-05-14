@@ -1,38 +1,30 @@
 <p class="newFont">Your Token: {{token}}</p>
 
-
-<div class="container">
-    <h1 class="textQ">Questions for Students </h1>
-    <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
-        <p>
-
-        <table class="table table-bordered" formArrayName="questions">
-            <tr>
-                <th colspan="2" class="newFont">Add Questions:</th>
-                <th width="150px"><button
-                        style="background-color: #0f5298; padding: 8px 20px; border-radius: 10px; margin: 0px auto; display: block;"
-                        type="button" (click)="addQuestion()" class="btn btn-primary">Add</button></th>
-            </tr>
-            <tr *ngFor="let quantity of questions().controls; let i=index" [formGroupName]="i">
-                <td>
-                    <p class="newFont">Question :</p> <input type="text" formControlName="Q" class="form-control">
-                </td>
-                <td>
-                    <p class="newFont">Answer:</p> <input style="border: black;" type="text" formControlName="A"
-                        class="form-control">
-                </td>
-                <td>
-                    <button
-                        style="background-color: red; padding: 8px 20px; border-radius: 10px; margin-top: 10px; margin: 0px auto; display: block;"
-                        (click)="removeQuestion(i)" class="btn btn-danger">Remove</button>
-                </td>
-            </tr>
-        </table>
-        <!--<button type="submit" class="btn btn-success">Submit</button> -->
-        <button style="float: right; margin-right: 28px; padding: 8px 20px; border-radius: 10px;" type="submit"
-            class="btn btn-success" (click)="sendQuestionToDB(this.questionForm.value)"> Submit </button>
-
-    </form>
-    <br />
-    <-- {{this.questionForm.value | json}}-->
-</div>
+<div class="container">    
+    <h1 class="textQ">Questions for Students </h1>    
+        <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">        
+            <p>      
+                     
+            <table class="table table-bordered" formArrayName="questions">      
+                <tr>       
+                    <th colspan="2" class="newFont">Add Questions:</th>       
+                    <th width="150px"><button style="background-color: #0f5298; padding: 8px 20px; border-radius: 10px; margin: 0px auto; display: block;" type="button" (click)="addQuestion()" class="btn btn-primary">Add</button></th>      
+                </tr>
+                <tr *ngFor="let quantity of questions().controls; let i=index" [formGroupName]="i">        
+                    <td>            
+                        <p class="newFont">Question :</p><div class="question-style"> <input formControlName="Q" class="form-control">       </div>
+                    </td>        
+                    <td>            
+                        <p class="newFont">Answer :</p><div class="answer-style">            <input formControlName="A" class="form-control">        </div>
+                    </td>        
+                    <td>             
+                        <button style="background-color: red; padding: 8px 20px; border-radius: 10px; margin-top: 10px; margin: 0px auto; display: block;" (click)="removeQuestion(i)" class="btn btn-danger">Remove</button>        
+                    </td>      
+                </tr>    
+            </table>       
+            <!--<button type="submit" class="btn btn-success">Submit</button> -->
+            <button style="float: right; margin-right: 28px; padding: 8px 20px; border-radius: 10px;" type="submit" class="btn btn-success" (click)="sendQuestionToDB(this.questionForm.value)" > Submit </button>
+      
+        </form>      
+        <br/> <!-- {{this.questionForm.value | json}}-->
+    </div>

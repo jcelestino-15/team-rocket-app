@@ -1,0 +1,8 @@
+.answer-style{
+    border: black;
+    background-color: rgba(255, 235, 145, 0.4);
+}
+.question-style{
+    border: black;
+    background-color: rgba(176, 255, 145, 0.4);
+}
