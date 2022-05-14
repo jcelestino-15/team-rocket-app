@@ -47,18 +47,18 @@ export class AnswerQuestionsComponent implements OnInit {
      response: this.response;
   }
 
-  responses(A:string): FormArray {
+  responses(): FormArray {
     return this.responseForm.get("responses") as FormArray
   }
 
-  newResponse(response: string): FormGroup{
+  newResponse(): FormGroup{
     return this.fb.group({
-      response: this.response,
+      A: '',
    })
   }
 
-  addResponse(A:string){
-    this.responses(this.response).push(this.newResponse(this.response));
+  addResponse(){
+    this.responses().push(this.newResponse());
   }
  
   onSubmit(){
