@@ -17,6 +17,7 @@ export class AnswerQuestionsComponent implements OnInit {
   token!: string;
   student_id: string;
   responseForm: FormGroup
+  response: string;
    
   constructor(private fb: FormBuilder, private questionService: QuestionsService, private sharedToken: SharedTokenService,
     private sharedStudentID: SharedStudentIdService, public router: Router) {
@@ -42,20 +43,22 @@ export class AnswerQuestionsComponent implements OnInit {
        student_id: this.student_id,
        responses: this.fb.array([]),
      })
+
+     response: this.response;
   }
 
-  responses(): FormArray {
+  responses(A:string): FormArray {
     return this.responseForm.get("responses") as FormArray
   }
 
-  newResponse(): FormGroup{
+  newResponse(response: string): FormGroup{
     return this.fb.group({
-      A: '',
+      response: this.response,
    })
   }
 
-  addResponse(){
-    this.responses().push(this.newResponse());
+  addResponse(A:string){
+    this.responses(this.response).push(this.newResponse(this.response));
   }
  
   onSubmit(){

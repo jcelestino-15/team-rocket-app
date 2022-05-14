@@ -1,9 +1,28 @@
 <h1>Questions to Answer:</h1>
     <h3> Your Professor's Token: {{questionlist.token}}</h3>
     
-    <tr *ngFor="let question of questionlist.questions; let i = index">
-        <td>Question: {{question.Q}}</td>
-        <td> Answer: <input type="text"> </td>
-    </tr>
+    <div class="container">
+
+        <form [formGroup]="responseForm" (ngSubmit)="onSubmit()">
+            <p>
+    
+            <table class="table table-bordered" formArrayName="responses">
+            
+                <ng-container *ngFor="let question of questionlist.questions; let i=index" [formGroupName]="i" >
+                    
+                    
+                    <td>Question: {{question.Q}}</td>
+                    <td> 
+                        Answer: <input type="text" formControlName="response" class="form-control"> 
+                    </td>
+                    <th width="150px"><button type="submit" (click)="addResponse(response)" class="btn btn-success">Answer Questions</button></th>
+                </ng-container>
+            </table>
+            <button type="submit" class="btn btn-success" (click)="sendResponseToDB(this.responseForm.value)" > Finalize </button>
+        </form>
+    
+        
+        <br/> <-- {{this.responseForm.value | json}}-->
+    </div>
 
 
