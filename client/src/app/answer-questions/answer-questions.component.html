@@ -1,0 +1,9 @@
+<h1>Questions to Answer:</h1>
+    <h3> Your Professor's Token: {{questionlist.token}}</h3>
+    
+    <tr *ngFor="let question of questionlist.questions; let i = index">
+        <td>Question: {{question.Q}}</td>
+        <td> Answer: <input type="text"> </td>
+    </tr>
+
+
