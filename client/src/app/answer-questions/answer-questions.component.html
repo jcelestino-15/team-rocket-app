@@ -15,7 +15,9 @@
         <p>
 
         <table class="table table-bordered" formArrayName="responses">
-            <th width="150px"><button type="button" (click)="addResponse()" class="btn btn-primary">Answer Questions</button></th>    
+            <th width="150px"><button type="button" (click)="addResponse()" (click)="actionMethod($event)" class="btn btn-primary">View Questions</button></th> 
+             
+   
             <ng-container *ngFor="let question of questionlist.questions; let i=index" [formGroupName]="i" >
 
                 <tr *ngFor="let quantity of responses().controls; let i=index" >

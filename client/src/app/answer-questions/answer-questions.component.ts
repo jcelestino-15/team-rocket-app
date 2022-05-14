@@ -57,6 +57,10 @@ export class AnswerQuestionsComponent implements OnInit {
    })
   }
 
+  actionMethod(event: any) {
+    event.target.disabled = true;
+}
+
   addResponse(){
     this.responses().push(this.newResponse());
   }
