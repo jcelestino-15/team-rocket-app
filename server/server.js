@@ -54,6 +54,25 @@ app.post ('/sendQuestion', (req, res)=>{
     .catch(error => console.error(error))
     })
 })
+
+app.post ('/sendResponse', (req, res)=>{
+
+  // connect to db
+  MongoClient.connect(connectionString, {useUnifiedTopology: true})
+  .then(client => {
+      console.log('Connected to the db')
+      const db = client.db('TeamRocketDB')
+      const responsesCollection = db.collection('student-response')
+
+  // write the request to the the collections
+  responsesCollection.insertOne(req.body)
+  .then(result => {
+      res.redirect('/')
+      console.log(result)
+  })
+  .catch(error => console.error(error))
+  })
+})
     
 app.get('/questionsFromProfessor', (req, res) => {
 
