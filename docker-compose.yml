@@ -1,0 +1,18 @@
+version: '3' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  client:
+    build: ./client
+    ports:
+      - "80:80"
+  server: # name of the first service
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+    build: ./server # specify the directory of the Dockerfile
+    ports:
+      - "3000:3000"
+  
