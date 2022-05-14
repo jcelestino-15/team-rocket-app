@@ -48,6 +48,15 @@ export class AnswerQuestionsComponent implements OnInit {
     return this.responseForm.get("responses") as FormArray
   }
 
+  newResponse(): FormGroup{
+    return this.fb.group({
+      A: '',
+   })
+  }
+
+  addResponse(){
+    this.responses().push(this.newResponse());
+  }
  
   onSubmit(){
     console.log(this.responseForm.value);
